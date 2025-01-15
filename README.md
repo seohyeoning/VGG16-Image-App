@@ -12,17 +12,17 @@ VGG16 신경망을 활용하여 이미지를 균열(cracked) 또는 비균열(un
         <img src="./image/0.PNG" />
     </td>
     <td align="center">
-        <h3>Insert Operation</h3>
+        <h3>Operation 1</h3>
         <img src="./image/1.PNG" />
     </td>
 </tr>
 <tr>
     <td align="center">
-        <h3>Update Operation</h3>
+        <h3>Operation 2</h3>
         <img src="./image/2.PNG"/>
     </td>
     <td align="center">
-        <h3>Delete Operation</h3>
+        <h3>Operation 3</h3>
         <img src="./image/3.PNG"/>
     </td>
 </tr>
