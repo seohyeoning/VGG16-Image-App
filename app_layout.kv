@@ -1,0 +1,82 @@
+<ClassificationApp>:
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        # 헤더 영역
+        BoxLayout:
+            size_hint_y: 0.1
+            padding: [10, 10, 10, 10]
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.4, 0.4, 1  # 따뜻한 핑크색
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: 'Quality Insurance App (VGG16)'
+                font_size: 28  # 제목을 강조하기 위해 크기를 조금 키움
+                markup: True  # 마크업 사용 활성화
+                color: 1, 1, 1, 1  # 기본 텍스트 색상 (마크업 색상은 따로 적용됨)
+                halign: "center"  # 텍스트를 중앙 정렬
+                valign: "middle"  # 텍스트를 수직 중앙 정렬
+    
+
+        GridLayout:
+            cols: 2
+            size_hint_y: 0.05
+            TextInput:
+                id: image_path_input
+                hint_text: 'Enter the path of test data'
+                text: ''
+                # font_size: 20
+                size_hint_x: 0.7
+                text_size: self.size 
+                multiline: False
+
+            Button:
+                text: 'Select Image path'
+                font_size: 20
+                size_hint_x: 0.3
+                on_press: root.select_image()
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 50
+            spacing: 20
+            size_hint_y: 0.85
+
+            Image:
+                id: my_img
+                source: ''
+                background_color: 0, 0, 0, 1
+                size_hint_y: 0.4
+            
+            FileChooserIconView:
+            # FileChooserListView:
+                size_hint_y: 0.5
+                id: filechooser
+                on_selection: root.select_inf(filechooser.selection)
+                #on_selection: root.selected(filechooser.selection)
+
+
+            Label:
+                id: my_label
+                text: 'Inference: '
+                font_size: 20
+                size_hint_y: 0.05
+
+
+            GridLayout:
+                cols: 2
+                rows: 1
+                size_hint_y: 0.05
+                Label:
+                    id: cracked
+                    text: 'Cracked: '
+                    font_size: 20
+                Label:
+                    id: uncracked 
+                    text: 'Uncracked: '
+                    font_size: 20
